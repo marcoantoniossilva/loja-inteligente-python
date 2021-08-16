@@ -1,0 +1,27 @@
+{
+  "versao": "0.1",
+  "cadastros": [
+    {
+      "nome": "?",
+      "idade": 0,
+      "endereco": "?",
+      "renda": 0,
+      "fotos": [
+        "C:\\Users\\Win10\\Documents\\GitHub\\loja-inteligente-python\\faces\\elliot1.jpg",
+        "C:\\Users\\Win10\\Documents\\GitHub\\loja-inteligente-python\\faces\\elliot2.jpg",
+        "C:\\Users\\Win10\\Documents\\GitHub\\loja-inteligente-python\\faces\\elliot3.jpg"
+      ]
+    },
+    {
+      "nome": "?",
+      "idade": 0,
+      "endereco": "?",
+      "renda": 0,
+      "fotos": [
+        "C:\\Users\\Win10\\Documents\\GitHub\\loja-inteligente-python\\faces\\darlene1.jpg",
+        "C:\\Users\\Win10\\Documents\\GitHub\\loja-inteligente-python\\faces\\darlene2.jpg",
+        "C:\\Users\\Win10\\Documents\\GitHub\\loja-inteligente-python\\faces\\darlene3.jpg"
+      ]
+    }
+  ]
+}
