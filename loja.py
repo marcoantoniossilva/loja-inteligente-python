@@ -111,7 +111,6 @@ def reconhecer_visitante(env):
             imprimir_dados(cliente)
         else:
             print("nao foi reconhecido um cliente\n")
-
         yield env.timeout(TEMPO_ENTRE_VISITANTES)
 
 
@@ -130,7 +129,7 @@ def identificar_inadimplencia(env):
                     clientes_reconhecidos.pop(id_atendimento) #se for inadimplente, automaticamente e cliente reconhecido.
 
                     print("ATENÇÃO! cliente", cliente["dados"]["nome"], "em situacao de inadimplencia!\n")
-        yield env.timeout(TEMPO_ENTRE_VISITANTES+30)
+        yield env.timeout(TEMPO_ENTRE_VISITANTES)
 
 def verificar_perfil(env):
     global clientes_reconhecidos
@@ -145,7 +144,7 @@ def verificar_perfil(env):
                 else:
                     print("cliente", cliente["dados"]["nome"], "nao e VIP por ter renda baixa.\n")
                 
-        yield env.timeout(TEMPO_ENTRE_VISITANTES+30)
+        yield env.timeout(TEMPO_ENTRE_VISITANTES)
 
 
 def atualizar_perfil(env):
@@ -179,7 +178,7 @@ def atualizar_perfil(env):
 
                             print("cliente", cliente["dados"]["nome"], " deixou de ser inadimplente\n")   
             
-            yield env.timeout(TEMPO_ENTRE_VISITANTES+30)
+            yield env.timeout(TEMPO_ENTRE_VISITANTES)
 
 if __name__ == "__main__":
     try:
