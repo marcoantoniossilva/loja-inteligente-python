@@ -20,12 +20,12 @@ FOTOS_CLIENTES = [
 ]
 ARQUIVO_CONFIGURACAO = "C:\\Users\\Win10\\Documents\\GitHub\\loja-inteligente-python\\configuracao.json"
 
-PROBABILIDADE_DE_SER_INADIMPLENTE = 5
-PROBABILIDADE_TORNAR_INADIMPLENTE = 15
+PROBABILIDADE_DE_SER_INADIMPLENTE = 30
+PROBABILIDADE_TORNAR_INADIMPLENTE = 40
 PROBABILIDADE_DEIXAR_INADIMPLENCIA = 40
-PROBABILIDADE_DE_SE_TORNAR_VIP = 10
+PROBABILIDADE_DE_SE_TORNAR_VIP = 40
 
-TEMPO_ENTRE_VISITANTES = 150
+TEMPO_ENTRE_CICLOS = 150
 
 
 def preparar():
@@ -111,7 +111,7 @@ def reconhecer_visitante(env):
             imprimir_dados(cliente)
         else:
             print("nao foi reconhecido um cliente\n")
-        yield env.timeout(TEMPO_ENTRE_VISITANTES)
+        yield env.timeout(TEMPO_ENTRE_CICLOS)
 
 
 def identificar_inadimplencia(env):
@@ -128,8 +128,8 @@ def identificar_inadimplencia(env):
                     clientes_inadimplentes[id_atendimento] = cliente
                     clientes_reconhecidos.pop(id_atendimento) #se for inadimplente, automaticamente e cliente reconhecido.
 
-                    print("ATENÇÃO! cliente", cliente["dados"]["nome"], "em situacao de inadimplencia!\n")
-        yield env.timeout(TEMPO_ENTRE_VISITANTES)
+                    print("ATENÇÃO! cliente", cliente["dados"]["nome"], "entrou em situacao de inadimplencia!\n")
+        yield env.timeout(TEMPO_ENTRE_CICLOS)
 
 def verificar_perfil(env):
     global clientes_reconhecidos
@@ -144,7 +144,7 @@ def verificar_perfil(env):
                 else:
                     print("cliente", cliente["dados"]["nome"], "nao e VIP por ter renda baixa.\n")
                 
-        yield env.timeout(TEMPO_ENTRE_VISITANTES)
+        yield env.timeout(TEMPO_ENTRE_CICLOS)
 
 
 def atualizar_perfil(env):
@@ -178,7 +178,7 @@ def atualizar_perfil(env):
 
                             print("cliente", cliente["dados"]["nome"], " deixou de ser inadimplente\n")   
             
-            yield env.timeout(TEMPO_ENTRE_VISITANTES)
+            yield env.timeout(TEMPO_ENTRE_CICLOS)
 
 if __name__ == "__main__":
     try:
